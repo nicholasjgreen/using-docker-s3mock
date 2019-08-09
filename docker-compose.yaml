@@ -8,3 +8,8 @@ services:
     ports:
       - "9090:9090"
       - "9091:9091"
+    environment:
+      - initialBuckets=bucket1,bucket2
+      - root=/s3_tmp_files
+    volumes:
+      - ./s3_temp_files/:/s3_tmp_files
