@@ -1,5 +1,5 @@
 # using-docker-s3mock
-This is me trying out the adobe mock of S3
+This is me trying out the mock of S3 based on localstack
 
 # You will need
 * docker
@@ -10,12 +10,9 @@ This is me trying out the adobe mock of S3
 
 ```bash
 docker-compose up -d
+./provision.sh
 ```
 
-You can check that the buckets have been created like this:
-```bash
-ls -la s3_temp_files
-```
 
 # Set up virtualenv and boto3
 ```bash

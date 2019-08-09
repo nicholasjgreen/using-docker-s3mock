@@ -4,12 +4,14 @@ version: "2.2"
 services:
 
   s3mock:
-    image: adobe/s3mock
+    image: localstack/localstack:latest
     ports:
-      - "9090:9090"
-      - "9091:9091"
+      - '4563-4584:4563-4584'
+      - '8055:8080'
     environment:
-      - initialBuckets=bucket1,bucket2
-      - root=/s3_tmp_files
+      - SERVICES=s3
+      - DEBUG=1
+      - DATA_DIR=/tmp/localstack/data
     volumes:
-      - ./s3_temp_files/:/s3_tmp_files
+      - './.localstack:/tmp/localstack'
+      - '/var/run/docker.sock:/var/run/docker.sock'
